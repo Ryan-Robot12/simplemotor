@@ -11,18 +11,19 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class MotorSubsystem extends SubsystemBase {
-  TalonFX fMotor;//, lMotor;
+  TalonFX fMotor; // working
+  TalonFX lMotor; // not
 
   /** Creates a new MotorSubsystem. */
   public MotorSubsystem() {
-    fMotor = new TalonFX(4);
-    // lMotor = new TalonFX(6);
+    fMotor = new TalonFX(6); // the one thats working
+    lMotor = new TalonFX(4); // the one thats not
   }
 
   public void setPivot(double speed) {
     SmartDashboard.putNumber("sped", speed);
-    // lMotor.set(speed);
-    fMotor.set(-speed);
+    lMotor.set(speed); // not working
+    fMotor.set(-speed); // working
   }
 
   @Override
